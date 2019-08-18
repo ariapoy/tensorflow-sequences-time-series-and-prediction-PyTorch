@@ -1,4 +1,4 @@
-# tensorflow-sequences-time-series-and-prediction
+# tensorflow-sequences-time-series-and-prediction (PyTorch Ver.)
 Sequences, Time Series and Prediction by deeplearning.ai
 
 Course 4 of 4 in the [TensorFlow in Practice Specialization](https://www.coursera.org/specializations/tensorflow-in-practice)
