@@ -13,8 +13,10 @@ import seaborn as sns
 from pandas.plotting import autocorrelation_plot
 from statsmodels.tsa.arima_model import ARIMA
 import pdb
+np.random.seed(1729)
 matplotlib.use('Agg')
 sns.set()
+plt.switch_backend('agg')
 prefix_name = 'SPW1L2'
 
 
