@@ -63,7 +63,8 @@ slope = 0.05
 noise_level = 5
 
 # Create the series
-series = baseline + trend(time, slope) + seasonality(time, period=365, amplitude=amplitude)
+series = baseline + trend(time, slope) +\
+    seasonality(time, period=365, amplitude=amplitude)
 # Update with noise
 series += noise(time, noise_level, seed=1729)
 
@@ -78,6 +79,7 @@ window_size = 20
 batch_size = 32
 # What is it? Is it necessary? 這個是甚麼？
 shuffle_buffer_size = 1000
+
 
 # # Slice time series to several windows
 # 將連續的資料分段
