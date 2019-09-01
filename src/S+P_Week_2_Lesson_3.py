@@ -1,3 +1,10 @@
+'''
+# Week 2 Lesson 3
+In the screencast for this lesson, I will go through steps for training the simple dense netural network (or fully connected networks).
+And you can see my implementment is imitate the function used in Keras. Make it as similar as possible. 
+
+'''
+
 import torch as t
 import torch.nn as nn
 import torch.nn.functional as F
