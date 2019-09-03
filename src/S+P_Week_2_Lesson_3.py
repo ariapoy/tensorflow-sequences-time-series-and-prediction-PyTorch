@@ -211,27 +211,33 @@ savefig('1_forecast')
 print(mean_absolute_error(x_valid, results))
 
 # Another model
+t.manual_seed(1729)
+np.random.seed(1729)
+
 model2 = Sequential(Net(input_size=window_size))
 model2.t_compile(metric=nn.MSELoss(), optimizer=optim.SGD(
                 model2.model.parameters(), lr=1e-8, momentum=0.9))
 # Callbacks with learning rate schedule
-lr_schedule = [lambda epoch: 1e-8 * 10**(epoch / 20)]
+lr_schedule = [lambda epoch: 10.0 ** (epoch / 20)]
 history2 = model2.t_fit(dataset, 100, callbacks=lr_schedule)
 # Plot
 lrs = 1e-8 * (10 ** (np.arange(100) / 20))
 openfig()
 plt.semilogx(lrs, history2)
-plt.axis([1e-8, 1e-3, 0, 2500])
+plt.axis([1e-8, 1e-3, 0, 300])
 savefig('2_resultsLoss_learningRates')
 print(lrs[np.argmin(history2)])
 
 # Final model
+t.manual_seed(1729)
+np.random.seed(1729)
+
 window_size3 = 30
 dataset3 = windowed_dataset(x_train, window_size3, batch_size,
                             shuffle_buffer_size)
 model3 = Sequential(Net(input_size=window_size3))
 model3.t_compile(metric=nn.MSELoss(), optimizer=optim.SGD(
-                 model3.model.parameters(), lr=8e-06, momentum=0.9))
+                 model3.model.parameters(), lr=5e-06, momentum=0.9))
 history3 = model3.t_fit(dataset3, 500)
 epochs = range(len(history3))
 openfig()
